@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script type='text/javascript' src='vue.js'></script>
+
+  <body>
+
+
+<div id='app'>
+
+<!-- v-on:click -->
+<span>{{message}}</span>
+
+<p v-show="message">
+New P Tag
+</p>
+
+
+<p v-if="message">
+V-IF:New P Tag
+</p>
+
+<p v-else="message">
+V-ELSE:New P Tag
+</p>
+
+
+<button  @click="sayhi('ab','cd')">
+alert
+</button>
+<!-- =message-1" -->
+<button  @click="message=!message">
+invert
+</button>
+
+</div>
+
+
+<script type="text/javascript">
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+     message:true
+    // message:3
+  },
+  methods:{
+    sayhi:function(v1,v2){
+      alert(v1+v2)
+    }
+  }
+})
+
+</script>
+
+  </body>
+</html>
