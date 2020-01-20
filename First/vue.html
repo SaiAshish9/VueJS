@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+  <body>
+
+<div id='app'>
+<!-- v-text='name' -->
+<!-- v-html='name' -->
+<p>
+  My name is <span v-html='name'>
+<!-- {{name}} -->
+  </span>
+  </p>
+
+<img v-bind:src='url' v-bind:title='title' />
+
+</div>
+
+
+<script type="text/javascript">
+
+var model={
+  name:'<b> Sai </b>',
+  url:'farmer.png',
+  title:'I am the logo of VUE',
+}
+
+var vm=new Vue({
+  el:'#app',
+  data:model,
+})
+
+</script>
+
+  </body>
+</html>

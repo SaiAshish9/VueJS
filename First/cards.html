@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vue Project</title>
+		<meta http-equiv='content-type' content='text/html;charset=utf-8'>
+		<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+		<style>
+			h1,h2,h3,h4,h5,h6,div,p,span{font-family:helvetica;padding:0;margin:0;}
+			.main_frame{width:300px;height:450px;border:1px blue solid}
+			.photo_frame{height:200px;width:300px;background:red}
+			.photo_size{width:300px;height:200px;}
+			.content_frame{position:relative;padding:5px;width:290px;height:240px;}
+			.title{line-height:26px;font-size:18px;}
+			.summary{font-size:14px;line-height:20px;}
+			.category{position:absolute;bottom:5px;font-weight:bold;color:teal}
+			.gap{height:15px;}
+		</style>
+		<script type='text/javascript' src='vue.js'></script>
+	<body>
+
+		<div id='app'>
+			<div class='main_frame'>
+				<div class='photo_frame'>
+					<img v-bind:src='url' alt='image' class='photo_size'/>
+				</div>
+				<div class='content_frame'>
+					<div class='gap'></div>
+					<div class='title'>
+						<h2>{{title}}</h2>
+					</div>
+					<div class='gap'></div>
+					<div class='summary'>
+						<p>
+							{{summary}}
+						</p>
+					</div>
+					<div class='gap'></div>
+					<div class='category'>
+						<span>{{category}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<script type='text/javascript'>
+		model_1={
+			url:'image1.jpg',
+			title:'New Engine Developed',
+			summary:'Recently, a new engine has been developed. As for what it can do, I have no idea.',
+			category:'science',
+		}
+		model_2={
+			url:'image2.jpg',
+			title:'A Blue Helmet',
+			summary:'I honestly have no idea why a blue helmet can be reported in the news. Is it because it is a blue helmet displayed on a blue background???',
+			category:'boring',
+		}
+		model_3={
+			url:'image3.jpg',
+			title:'King of the Internet!',
+			summary:'His highness Dogge has granted us the honor of appearing on our course DEMO. I feel so honored!!! So what should I say next???',
+			category:'Internet',
+		}
+		model_4={
+			url:'image4.jpg',
+			title:'Shocking Cat',
+			summary:'Any image of cat can get hot on the internet. Smily cat, sleepy cat, smelly cat, shocking cat...',
+			category:'Internet Royalty',
+		}
+		model_5={
+			url:'image5.jpg',
+			title:'A Chimp',
+			summary:'I do not know what to write here... So I am gonna repeat. I do not know what to write here... So I am gonna repeat.',
+			category:'Animal',
+		}
+		model_6={
+			url:'image6.jpg',
+			title:'Chinese HAN Sword',
+			summary:'Finally, something cool!!! Chinese Han-Dynasty Sword!!! Forged two millennium agao, so razor sharp today!',
+			category:'Military',
+		}
+
+		var vm = new Vue({
+			el:'#app',
+			data:model_6,
+		})
+
+	</script>
+	</body>
+</html>
