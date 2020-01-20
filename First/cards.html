@@ -19,46 +19,54 @@
 	<body>
 
 		<div id='app'>
-			<div class='main_frame'>
+			<div class='main_frame' v-for='element in info_set'>
 				<div class='photo_frame'>
-					<img v-bind:src='url' alt='image' class='photo_size'/>
+					<img v-bind:src='element.url' alt='image' class='photo_size'/>
 				</div>
 				<div class='content_frame'>
 					<div class='gap'></div>
 					<div class='title'>
-						<h2>{{title}}</h2>
+						<h2>{{element.title}}</h2>
 					</div>
 					<div class='gap'></div>
 					<div class='summary'>
 						<p>
-							{{summary}}
+							{{element.summary}}
 						</p>
 					</div>
 					<div class='gap'></div>
 					<div class='category'>
-						<span>{{category}}</span>
+						<span>{{element.category}}</span>
 					</div>
 				</div>
 			</div>
+
+
+
 		</div>
 
 	<script type='text/javascript'>
-		model_1={
-			url:'farmer.png',
-			title:'New Engine Developed',
-			summary:'Recently, a new engine has been developed. As for what it can do, I have no idea.',
-			category:'science',
-		}
-		model_2={
-			url:'farmercouple.png',
-			title:'A Blue Helmet',
-			summary:'I honestly have no idea why a blue helmet can be reported in the news. Is it because it is a blue helmet displayed on a blue background???',
-			category:'boring',
-		}
 
 		var vm = new Vue({
 			el:'#app',
-			data:model_2,
+			data:{
+        info_set:[
+        {
+          url:'farmer.png',
+          title:'New Engine Developed',
+          summary:'Recently, a new engine has been developed. As for what it can do, I have no idea.',
+          category:'science',
+        },
+        {
+          url:'farmercouple.png',
+          title:'A Blue Helmet',
+          summary:'I honestly have no idea why a blue helmet can be reported in the news. Is it because it is a blue helmet displayed on a blue background???',
+          category:'boring',
+        },
+        ]
+
+
+      },
 		})
 
 	</script>
