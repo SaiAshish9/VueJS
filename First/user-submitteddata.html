@@ -37,16 +37,49 @@
   orange
 </span>
 <input v-model='message' type="radio" name="" value="orange">
+<hr/>
+
+
+<p v-bind:title='title|capitalize'>
+  Processed Value:
+  <span>
+    {{computed_message|capitalize}}
+  </span>
+</p>
 
 <select class="" name="" v-model='message'>
-  <option value="apple" >apple</option>
-  <option value="orange">orange</option>
+  <option v-for='element in list_info' v-bind:value='element.value' >
+    {{element.text}}
+    {{element.value}}
+  </option>
 
 </select>
 
 
+<p>
+First Name:
+</p>
+
+<input v-model='first_name'/>
+
+
+
+<p>
+  Last Name:
+</p>
+
+<input v-model='family_name'/>
+
+<p>
+
+  Full Name
+</p>
+
+<input v-model='full_name'/>
+
 
 </div>
+
 
 
 <script >
@@ -54,8 +87,37 @@
 var vm=new Vue({
 el:'#app',
 data:{
-  message:'initial value set in DATA'
+  first_name:'Sai',
+  family_name:'Ashish',
+  message:'initial value set in DATA',
+  title:'title set',
+  list_info:[
+    {value:'apple',text:'fruit 1',},
+    {value:'peach',text:'fruit 2'},
+  ],
 },
+computed:{
+  computed_message:function(){
+    return this.message.split('').reverse().join('')
+  },
+  full_name:{
+get:function(){
+return this.first_name+' ' +this.family_name
+},
+set:function(v){
+var array= v.split(' ')
+this.first_name=array[0]
+this.family_name=array[array.length-1]
+},
+  },
+},
+filters:{
+  capitalize:function(v){
+    return v.toUpperCase()
+  }
+},
+
+
 })
 
 </script>
