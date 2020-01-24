@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+
+  <script src="vue.js" type="text/javascript">
+  </script>
+
+
+<style>
+.warning{
+  border:red solid 2px;
+}
+</style>
+
+  <body>
+
+
+
+<div id="app">
+
+<!-- <input v-model='message' v-on:input='check'/> -->
+
+<textarea v-bind:class='{warning:!remain}' v-model='message' v-on:input='check' >
+
+</textarea>
+
+<p>
+{{remain}}/{{limit}}
+</p>
+
+</div>
+
+<script type='text/javascript'>
+
+var vue=new Vue({
+  el:'#app',
+  data:{
+    message:'sai',
+    limit:50,
+  },
+  computed:{
+remain:function(){
+  if(this.limit<=50){
+  return this.limit=this.message.length
+}
+}
+  },
+  methods:{
+    check:function(){
+      if(this.remain<0){
+        this.message=this.message.substr(0,this.limit)
+      }
+    }
+  },
+
+})
+
+</script>
+
+  </body>
+</html>

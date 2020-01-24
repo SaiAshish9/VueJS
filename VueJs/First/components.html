@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+
+<style >
+.comp_root{
+  background:red;
+  color:white;
+}
+
+</style>
+
+<script src="vue.js" type="text/javascript">
+
+</script>
+
+  <body>
+
+
+<div id="app1">
+
+
+<!-- <simple>
+
+</simple> -->
+<p>
+VM 2
+</p>
+
+<comp>
+
+</comp>
+
+</div>
+
+
+<div id='app2'>
+<p>
+VM 2
+</p>
+
+<comp>
+
+</comp>
+</div>
+
+<template id="temp">
+
+<div class='comp_root'>
+  <p >
+  This is a component
+  <!-- {{message}} -->
+  </p>
+</div>
+
+</template>
+
+
+<script type="text/javascript">
+// Vue.component('simple',{
+// template:'#temp',
+// data:function(){
+// return {
+//   message:'message'
+// }
+// },
+// props:[],
+// methods:{},
+// })
+
+var vm1=new Vue({
+  el:'#app1',
+  // data:{},
+  // computed:{},
+  // methods:{},
+  components:{
+    comp:{
+      template:'#temp',
+      data:function(){
+        return {}
+      },
+      props:[],
+      methods:{},
+    }
+  }
+})
+
+var vm2=new Vue({
+  el:'#app2',
+})
+
+</script>
+
+  </body>
+</html>

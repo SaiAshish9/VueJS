@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<div id='app'>
+<p>
+  {{message}}
+</p>
+</div>
+
+<script type="text/javascript">
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+    message:'MESSAGE PROPERTY'
+  },
+  methods:{
+    output:function(){
+      alert(this.message)
+    }
+  }
+})
+
+
+</script>
+
+  </body>
+</html>
