@@ -16,7 +16,7 @@
 
 <!-- content=arguments[0] -->
 
-<comp v-on:relay='allocate'></comp>
+<comp v-on:relay='allocate' v-on:click.native='alert'></comp>
   <p>
 {{content1}}
     </p>
@@ -69,6 +69,10 @@ var vm=new Vue({
   }
   ,
   methods:{
+
+    alert:function(){
+      alert('hi')
+    },
     allocate:function(v1,v2){
 this.content1=v1
 this.content2=v2
