@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript" src="vue.js">
+
+    </script>
+
+    <div id="app">
+    <comp>
+      <template scope='obj'>
+        <div >
+          {{obj.designer_info}}
+        </div>
+      </template>
+    </comp>
+    </div>
+
+<template id="temp">
+  <slot v-bind:designer_info='designer'>
+
+    </slot>
+</template>
+
+    
+
+<script type="text/javascript">
+
+  Vue.component('comp',{
+  template:'#temp',
+  data:function(){
+    return {
+      designer:'app developed by me'
+    }
+  }
+  })
+
+  var vm=new Vue({
+    el:'#app',
+    data:{
+      msg:'123456'
+    }
+  })
+</script>
+
+  </body>
+</html>

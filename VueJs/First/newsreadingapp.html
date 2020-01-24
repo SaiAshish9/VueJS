@@ -18,8 +18,8 @@
 		<script type='text/javascript' src='vue.js'></script>
 	<body>
 		<div id='app'>
-			<i v-if='show' v-on:click='show=!show' title='Edit' class="button-size fa fa-check" aria-hidden="true"></i>
-			<i v-if='!show' v-on:click='save' title='Save' class="button-size " aria-hidden="true"></i>
+	<i v-if='show' v-on:click='show=!show' title='Edit' class="button-size fa fa-check" aria-hidden="true"></i>
+			<i v-if='!show' v-on:click='save' title='Save' class="button-size fa-pen" aria-hidden="true"></i>
 			<div v-if='show' id='reading-mode'>
 				<reading-comp :title='title' :author='author' :date='date' :category='category' :theme_color='category_theme_color[category]'><!--no dot here-->
 					<div id='article-area'>{{article}}</div>

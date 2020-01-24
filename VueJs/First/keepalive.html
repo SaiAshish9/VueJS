@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+<div id="app">
+<keep-alive>
+  <component is='comp3'></component>
+</keep-alive>
+
+</div>
+
+<script type="text/x-template" id="temp1">
+<div v-once>
+  <p >
+    comp1
+    </p>
+</div>
+
+</script>
+
+<template id="temp2">
+  <div v-once>
+    <p >
+      comp2
+      </p>
+  </div>
+</template>
+
+<template id="temp3">
+  <div v-once>
+    <p >
+      comp3
+      </p>
+  </div>
+</template>
+
+<script type="text/javascript">
+  Vue.component('comp1',{
+    template:'#temp1',
+  })
+  Vue.component('comp2',{
+    template:'#temp2',
+  })
+  Vue.component('comp3',{
+    template:'#temp3',
+  })
+
+  var vm=new Vue({
+    el:'#app'
+  })
+</script>
+
+  </body>
+</html>
