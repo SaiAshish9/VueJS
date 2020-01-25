@@ -24,11 +24,38 @@
 
 
 <script type="text/javascript">
+<!-- created -->
 
+Vue.mixin({
+  data:function(){
+    return {
+      mixin_msg:'MSG'
+    }
+  },
+  created:function(){
+    console.log('created')
+  }
+})
+
+
+var  my_mixin={
+  <!-- template:'<b>mixin</b>', -->
+  data:{
+    mixin_msg1:'hi',
+    msg2:'hola'
+  },
+  methods:{
+    saybye:function(){
+        console.log('saybye')
+    }
+}
+}
 var vm=new Vue({
   el:'#app',
+  mixins:[my_mixin],
   data:{
-    msg:'hi'
+    msg1:'hi',
+    msg2:'hi'
   },
   methods:{
     sayhi:function(){
