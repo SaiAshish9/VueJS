@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<script src="vue.js" type="text/javascript">
+
+</script>
+
+
+<div id="app">
+
+<input v-model='msg' type="text" name="" value="">
+
+
+</div>
+
+
+<script type="text/javascript">
+
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+      msg:'apple'
+  },
+  watch:{
+    msg:function(newValue,oldValue){
+      console.log('Value changed from ' + oldValue + ' to ' +newValue)
+    }
+  }
+})
+
+</script>
+
+  </body>
+</html>

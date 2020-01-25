@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript" src="vue.js">
+
+    </script>
+
+<div id="app" >
+
+
+  <p v-check>
+    {{number}}
+    </p>
+
+  <button @click='add'>
+    add one
+  </button>
+
+
+
+  <p v-if="show" v-test >
+    hi
+    </p>
+
+<button @click="show=!show">
+Unbind
+</button>
+
+</div>
+
+<script type="text/javascript">
+
+Vue.directive('test',{
+
+bind:function(e){
+console.log('bind')
+},
+inserted:function(e){
+  console.log('inserted')
+},
+unbind:function(e){
+  console.log('unbind')
+}
+
+})
+
+Vue.directive('check',{
+
+update:function(e){
+  console.log(e.innerText);
+},
+componentUpdated:function(e){
+  console.log(e.innerText);
+}
+
+
+})
+
+
+
+var vm=new Vue({
+  el:'#app',
+data:{
+  show:true,
+  number:1,
+},
+methods:{
+  add:function(){
+    this.number++
+  }
+}
+})
+
+
+</script>
+
+
+  </body>
+</html>

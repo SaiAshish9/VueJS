@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+
+<div id="app">
+
+<ul>
+
+<li v-for='element in $data'>
+  {{element}}
+</li>
+
+</ul>
+
+</div>
+
+
+<script type="text/javascript">
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+    msg:'hi'
+  },
+  methods:{
+    sayhi:function(){
+        console.log('sayhi')
+    }
+  }
+})
+
+
+</script>
+
+
+
+  </body>
+</html>

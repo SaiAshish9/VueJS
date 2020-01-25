@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+
+<div id="app">
+
+{{msg}}
+
+<button v-on:click='update' type="button" name="button">
+  Next
+</button>
+
+</div>
+
+<script type="text/javascript">
+  var vm=new Vue({
+    el:'#app',
+    data:{
+      msg:0
+    },
+    methods:{
+      update:function(){
+        this.msg++
+        this.$nextTick(function(){
+          console.log(this.$el.innerText)
+        })
+      }
+    }
+  })
+</script>
+
+  </body>
+</html>
