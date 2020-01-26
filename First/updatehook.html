@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+
+<div id="app">
+{{msg}}
+</div>
+
+
+<script type="text/javascript">
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+    msg:1
+  },
+  beforeUpdate:function(){
+    console.log('before update')
+  },
+  updated:function(){
+    console.log('updated')
+  }
+
+
+})
+vm.msg++
+vm.msg++
+
+</script>
+
+  </body>
+</html>

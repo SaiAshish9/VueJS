@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+
+<div id="app">
+
+<ul>
+
+<li v-for='element in $data'>
+  {{element}}
+</li>
+
+</ul>
+
+</div>
+
+
+<script type="text/javascript">
+<!-- created -->
+
+Vue.mixin({
+  data:function(){
+    return {
+      mixin_msg:'MSG'
+    }
+  },
+  created:function(){
+    console.log('created')
+  }
+})
+
+
+var  my_mixin={
+  <!-- template:'<b>mixin</b>', -->
+  data:{
+    mixin_msg1:'hi',
+    msg2:'hola'
+  },
+  methods:{
+    saybye:function(){
+        console.log('saybye')
+    }
+}
+}
+var vm=new Vue({
+  el:'#app',
+  mixins:[my_mixin],
+  data:{
+    msg1:'hi',
+    msg2:'hi'
+  },
+  methods:{
+    sayhi:function(){
+        console.log('sayhi')
+    }
+  }
+})
+
+
+</script>
+
+
+
+  </body>
+</html>

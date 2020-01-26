@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+<div id="app">
+
+<comp></comp>
+
+</div>
+
+<template id="temp">
+<div>
+<ul v-if='list_info.length'>
+
+<li v-for='element in list_info'>
+  brand :{{element.brand}}  model:{{element.model}}
+</li>
+
+  </ul>
+<p v-else>
+  No Item Found
+  </p>
+
+  </div>
+
+</template>
+
+<script type="text/javascript">
+
+
+
+
+Vue.component('comp',{
+  // template:'#temp',
+  render:function(createElement){
+    if(this.list_info.length){
+     var span1=createElement('span','the brand is')
+     var span2=createElement('span','model : ')
+    var all_li=this.list_info.map(function(element){
+      return createElement(
+        'li',
+        [span1,element.brand,span2,element.model]
+      )
+    })
+    var ul=createElement('ul',all_li)
+    return createElement('div',[ul])
+    }else{
+      var p=createElement('p','No Item Found...')
+      return createElement('div',[p])
+    }
+  },
+
+  data:function(){
+    return {
+      list_info:[
+      {
+        brand:'Toyota',model:'Supra'
+      },
+      {
+        brand:'Nissan',model:'GT-R'
+      },
+      ]
+    }
+  }
+})
+
+
+var vm=new Vue({
+  el:'#app'
+})
+
+
+</script>
+
+  </body>
+</html>

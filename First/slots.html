@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+<script type="text/javascript" src="vue.js">
+
+
+</script>
+
+
+<div id="app">
+  <comp>
+
+<h1 slot='title'>
+  Title Of Article
+</h1>
+
+<div class='content'>
+
+<p slot='content'>
+asyuiofdsdfghjklkjhgfdfghjllkjhgf
+</p>
+
+</div>
+
+
+  </comp>
+</div>
+
+
+<template id="temp">
+  <div >
+    <slot name='title'>
+    </slot>
+    <p class="comp_p">
+
+      FIRST
+
+      </p>
+      <slot name='content'>
+      </slot>
+
+  <slot>
+  </slot>
+  </div>
+  <slot>
+  </slot>
+</template>
+
+<script type="text/javascript">
+
+Vue.component('comp',{
+  template:'#temp',
+})
+
+var vm =new Vue({
+  el:'#app',
+  data:{
+
+  },
+})
+
+</script>
+
+  </body>
+</html>

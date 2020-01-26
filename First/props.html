@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<script src="vue.js" type="text/javascript">
+
+</script>
+
+<div id="app">
+<p>
+  VM instance
+</p>
+
+<comp prop='direct value'>
+
+</comp>
+
+<comp v-bind:prop='vue_data'>
+
+</comp>
+
+</div>
+
+
+<template id="temp">
+  <div class="comp_root">
+    <p>
+    This is a component
+    </p>
+    <p>
+    {{prop}}
+    </p>
+  </div>
+
+</template>
+
+<script type="text/javascript">
+
+var vm=Vue.component('comp',{
+  template:'#temp',
+  data:function(){
+    return {
+      message:"hi",
+    }
+  },
+  props:['prop'],
+  methods:{},
+})
+
+
+
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+    vue_data:"Vue's data",
+  }
+})
+
+</script>
+
+  </body>
+</html>

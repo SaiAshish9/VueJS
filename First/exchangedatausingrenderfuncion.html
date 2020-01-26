@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+
+<div id="app">
+
+
+
+
+
+
+<comp ref='comp' v-model='msg'></comp>
+
+
+<p>
+  {{msg}}
+  </p>
+</div>
+
+<template id="temp">
+  <div >
+
+<input v-bind:value='my_prop' v-on:input='send($event.target.value)' />
+
+  </div>
+</template>
+
+<!--   <!-- value:'hi' -->
+
+<script type="text/javascript">
+
+Vue.component('comp',{
+
+render:function(createElement){
+  var self=this
+
+return createElement(
+  'input',{
+    attrs:{
+    title:'title',
+    },
+    domProps:{
+      value:this.my_prop
+    },
+    on:{
+      input:function(e){
+        self.send(e.target.value)
+      }
+    },
+  }
+
+)
+
+},
+
+  props:['my_prop'],
+  model:{
+  event:'my_event',
+  prop:'my_prop'
+},
+methods:{
+  send:function(v){
+    this.$emit('my_event',v)
+  }
+}
+
+
+})
+
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+    msg:'hi'
+  },
+})
+
+
+</script>
+
+  </body>
+</html>

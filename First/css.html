@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+
+
+  <style>
+  .red_font{
+    color:red
+  }
+  </style>
+
+  <script  type="text/javascript" src="vue.js"></script>
+
+  <body>
+
+
+<div id="app">
+<!-- class_name -->
+<p v-bind:style='style_object' v-bind:class='class_object'>
+I am a p tag...
+</p>
+
+</div>
+
+
+<script type="text/javascript">
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+    style_object:{
+      background:'blue'
+    },
+    // class_name:'red_font',
+    switch_on:true,
+  },
+  methods:{},
+  computed:{
+    class_object:function(){
+      return{
+        red_font:this.switch_on,
+      }
+    }
+
+  },
+})
+
+
+</script>
+
+  </body>
+</html>

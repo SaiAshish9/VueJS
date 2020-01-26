@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+<style>
+
+.fade-enter, .fade-leave-to{
+  opacity:0;transform:translateY(25px)
+}
+
+.fade-enter-active, .fade-leave-active{
+transition:all 2s
+}
+</style>
+
+<div id="app">
+<ul>
+<transition-group name='fade'>
+  <li v-for="element in list_info" v-bind:key='element'>
+{{element}}
+    </li>
+</transition-group>
+
+  </ul>
+
+<input v-model="new_item"/>
+
+<button v-on:click='add'>
+  Add
+</button>
+
+<button @click="remove">
+Remove
+</button>
+
+</div>
+
+<script type="text/javascript">
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+    list_info:[
+    '1','2','3'
+    ],
+    new_item:''
+  },
+  methods:{
+    add:function(){
+if(this.new_item.length){
+  this.list_info.push(this.new_item)
+  this.new_item=''
+}},
+remove:function(){
+  this.list_info.pop()
+
+}
+
+  }
+})
+
+</script>
+
+  </body>
+</html>

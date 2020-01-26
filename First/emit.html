@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<script src="vue.js" type="text/javascript">
+
+</script>
+
+<div id="app" >
+
+<h1>Parent DIV</h1>
+
+<!-- content=arguments[0] -->
+
+<comp v-on:relay='allocate' v-on:click.native='alert'></comp>
+  <p>
+{{content1}}
+    </p>
+
+<!-- <comp></comp> -->
+<hr/>
+<p>
+  {{content2}}
+</p>
+</div>
+
+<template id="temp">
+  <div class="comp_root">
+    <h2>Component</h2>
+
+    <input type="text" name="" v-model='message1' value=""/>
+
+
+<hr>
+
+<input type="text" name="" v-model='message2' value="">
+
+<button v-on:click='send' type="button" name="button">Send Data</button>
+  </div>
+</template>
+
+
+<script type="text/javascript">
+var vm=Vue.component('comp',{
+  template:'#temp',
+  data:function(){
+    return {
+      message1:'I want to go to Vue P tag',
+      message2:'1234'
+    }
+  },
+  props:[],
+  methods:{
+    send:function(){
+      this.$emit('relay',this.message1,this.message2)
+    }
+  }
+})
+
+var vm=new Vue({
+  el:'#app',
+  data:{
+    content1:'Waiting for data from component',
+    content2:'1234'
+  }
+  ,
+  methods:{
+
+    alert:function(){
+      alert('hi')
+    },
+    allocate:function(v1,v2){
+this.content1=v1
+this.content2=v2
+    }
+  }
+})
+
+</script>
+
+  </body>
+</html>

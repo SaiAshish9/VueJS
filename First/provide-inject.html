@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<script type="text/javascript" src="vue.js">
+
+</script>
+
+
+<div id="app">
+
+<comp>
+
+</comp>
+
+</div>
+
+
+<template id="temp">
+  <div>
+    {{msg}}    
+    </div>
+</template>
+
+<script type="text/javascript">
+
+Vue.component('comp',{
+  template:'#temp',
+  inject:['msg'],
+  data:function(){
+    return {
+      msg:this.msg
+    }
+  }
+})
+
+
+var vm=new Vue({
+  el:'#app',
+  provide:{
+    msg:'hi'
+  }
+})
+
+
+</script>
+
+
+  </body>
+</html>
